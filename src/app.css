@@ -1,0 +1,63 @@
+/* PALETTE RADIX ORANGE — VERSION MONOGRAPHIE SCIENTIFIQUE */
+:root {
+    --bg-page: #fdfbf9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fef5ee;
+    --border: #e8ded6;
+    --border-accent: #f76808;
+    --accent: #f76808;
+    --accent-hover: #ed5f00;
+    --accent-text: #ffffff;
+    --badge-bg: #faefe7;
+    --badge-text: #8c3b06;
+    --text-main: #2b1d14;
+    --text-muted: #7d6b5e;
+    --nav-bg: rgba(253, 251, 249, 0.92);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+}
+
+:root.dark {
+    --bg-page: #110e0c;
+    --bg-card: #181310;
+    --bg-card-hover: #221a15;
+    --border: #33261f;
+    --border-accent: #f76808;
+    --accent: #f76808;
+    --accent-hover: #ff7820;
+    --accent-text: #ffffff;
+    --badge-bg: #221a15;
+    --badge-text: #ff9c60;
+    --text-main: #f5ebe6;
+    --text-muted: #a69285;
+    --nav-bg: rgba(17, 14, 12, 0.92);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-page);
+    background-image: none; /* Dégradé supprimé */
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+    line-height: 1.65;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+    font-weight: 700;
+}
