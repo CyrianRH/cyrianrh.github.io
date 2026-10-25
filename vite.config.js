@@ -9,7 +9,8 @@ export default defineConfig({
 				fallback: '404.html'
 			}),
 			prerender: {
-				handleHttpError: 'warn'
+				handleHttpError: 'warn',
+				handleMissingId: 'warn'
 			}
 		})
 	]
