@@ -4,7 +4,6 @@
 
     let t = $derived(content[$lang] ?? content.fr ?? {});
 
-    // Modale au clic (Mobilité & Activités)
     let selectedItem = $state(null);
 
     function openModal(item) {
@@ -22,7 +21,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<!-- 1. HERO ASYMÉTRIQUE -->
+<!-- HERO ASYMÉTRIQUE -->
 <section id="home" class="hero-asym">
     <div class="hero-left">
         <h1 class="name">{t.profile?.name ?? 'Cyrian Revel--Hidalgo'}</h1>
@@ -49,16 +48,12 @@
     </div>
 </section>
 
-<!-- 2. COMPÉTENCES (AVEC LOGOS) & PROJETS -->
+<!-- COMPÉTENCES & PROJETS -->
 <section id="courses" class="projects-section">
     <div class="section-header">
-        <div>
-            <h2>{t.skills?.title}</h2>
-            <p class="section-caption">{t.skills?.subtitle}</p>
-        </div>
+        <h2>{t.skills?.title}</h2>
     </div>
 
-    <!-- Grille de badges / logos de compétences -->
     <div class="skills-icon-grid">
         {#each technicalData.skillsList as item}
             <div class="skill-icon-card">
@@ -74,7 +69,6 @@
         {/each}
     </div>
 
-    <!-- Projets -->
     <h3 class="subsection-title">{t.skills?.projectsTitle}</h3>
     <div class="projects-quad-grid">
         {#each (t.projects ?? []) as proj}
@@ -105,7 +99,7 @@
     </div>
 </section>
 
-<!-- 3. PARCOURS & EXPÉRIENCE -->
+<!-- PARCOURS & EXPÉRIENCES AVEC LOGOS À DROITE ET CONTRASTE SOMBRE -->
 <section id="career">
     <div class="section-header">
         <h2>{t.career?.title}</h2>
@@ -113,8 +107,7 @@
 
     <div class="math-card banner-docs">
         <div>
-            <h4>{t.career?.elevatorPitchTitle}</h4>
-            <p class="muted">{t.career?.elevatorPitchDesc}</p>
+            <h4>{t.career?.pitch}</h4>
         </div>
         <div class="cv-actions">
             <a href={technicalData.cvFr} target="_blank" rel="noopener noreferrer" class="btn-primary">{t.career?.cvFr}</a>
@@ -122,14 +115,29 @@
         </div>
     </div>
 
-    <!-- Timeline académique -->
+    <!-- Timeline académique avec logos à droite -->
     <div class="timeline-academic">
         {#each (t.academic ?? []) as stage}
             <div class="timeline-row">
                 <div class="time-col">{stage.year}</div>
                 <div class="content-col">
-                    <h4>{stage.title}</h4>
-                    <p class="muted">{stage.details}</p>
+                    <div class="academic-main-row">
+                        <div class="academic-info">
+                            <h4>{stage.title}</h4>
+                            <p class="muted">{stage.details}</p>
+                        </div>
+                        {#if stage.logo}
+                            <div class="logo-box institution-box">
+                                <img 
+                                    src={stage.logo} 
+                                    alt="" 
+                                    class="academic-logo-right" 
+                                    on:error={(e) => e.currentTarget.parentElement.style.display = 'none'} 
+                                />
+                            </div>
+                        {/if}
+                    </div>
+
                     <details class="courses-accordion">
                         <summary class="courses-trigger">
                             <span>{t.career?.coursesBtn}</span>
@@ -149,14 +157,32 @@
         {/each}
     </div>
 
-    <!-- Expériences professionnelles -->
+    <!-- Expériences avec grands logos et support contrasté -->
     <h3 class="subsection-title">{t.career?.experienceTitle}</h3>
     {#each (t.experiences ?? []) as exp}
         <div class="math-card">
             <div class="card-header-flex">
-                <h4>{exp.role} &mdash; <span class="highlight">{exp.company}</span> ({exp.location})</h4>
+                <div class="title-with-logo">
+                    {#if exp.logo}
+                        <div class="logo-box company-box">
+                            <img 
+                                src={exp.logo} 
+                                alt="" 
+                                class="company-logo-img" 
+                                on:error={(e) => e.currentTarget.parentElement.style.display = 'none'} 
+                            />
+                        </div>
+                    {/if}
+                    <div>
+                        <h4>{exp.role} | <span class="highlight">{exp.company}</span></h4>
+                        <p class="location-sub">{exp.location}</p>
+                    </div>
+                </div>
                 <span class="period-mono">{exp.period}</span>
             </div>
+            {#if exp.desc}
+                <p class="exp-desc">{exp.desc}</p>
+            {/if}
             <ul class="exp-tasks-list">
                 {#each exp.tasks as task}
                     <li>&bull; {task}</li>
@@ -186,7 +212,7 @@
     </div>
 </section>
 
-<!-- 4. MOBILITÉ INTERNATIONALE & LANGUES -->
+<!-- MOBILITÉ INTERNATIONALE & LANGUES -->
 <section id="mobility">
     <div class="section-header">
         <h2>{t.mobility?.title}</h2>
@@ -232,13 +258,10 @@
     </div>
 </section>
 
-<!-- 5. ENGAGEMENT CITOYEN & ASSOCIATIF (2 LIGNES DE 2 CASES + EFFET PROJETS) -->
+<!-- ENGAGEMENT CITOYEN & ASSOCIATIF (2x2) -->
 <section id="engagement" class="projects-section">
     <div class="section-header">
-        <div>
-            <h2>{t.engagement?.title}</h2>
-            <p class="section-caption">{t.engagement?.subtitle}</p>
-        </div>
+        <h2>{t.engagement?.title}</h2>
     </div>
 
     <div class="engagements-quad-grid">
@@ -263,13 +286,10 @@
     </div>
 </section>
 
-<!-- 6. ACTIVITÉS & CENTRES D'INTÉRÊT (2 ITEMS CENTRÉS AVEC MODALE) -->
+<!-- ACTIVITÉS & CENTRES D'INTÉRÊT (2 ITEMS CENTRÉS) -->
 <section id="activities">
     <div class="section-header">
-        <div>
-            <h2>{t.activities?.title}</h2>
-            <p class="section-caption">{t.activities?.subtitle}</p>
-        </div>
+        <h2>{t.activities?.title}</h2>
     </div>
 
     <div class="activities-centered-grid">
@@ -304,7 +324,7 @@
     </div>
 </section>
 
-<!-- FENÊTRE MODALE ÉPURÉE -->
+<!-- MODALE DE DESCRIPTION -->
 {#if selectedItem}
     <div 
         class="modal-backdrop" 
@@ -337,7 +357,6 @@
         border-bottom: 1px solid var(--border);
     }
 
-    /* SECTION ASYMÉTRIQUE / HERO */
     .hero-asym {
         display: grid;
         grid-template-columns: 1.25fr 0.75fr;
@@ -399,7 +418,6 @@
         color: var(--text-muted);
     }
 
-    /* PHOTO ASYMÉTRIQUE TRANSLUCIDE */
     .hero-right {
         display: flex;
         justify-content: center;
@@ -430,7 +448,6 @@
         filter: grayscale(0%);
     }
 
-    /* EN-TÊTE SECTIONS */
     .section-header {
         margin-bottom: 2.5rem;
         border-bottom: 1px solid var(--border);
@@ -442,12 +459,6 @@
         letter-spacing: -0.02em;
     }
 
-    .section-caption {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin-top: 0.2rem;
-    }
-
     .subsection-title {
         font-size: 1.15rem;
         margin: 3rem 0 1.2rem 0;
@@ -456,7 +467,7 @@
         letter-spacing: 0.5px;
     }
 
-    /* COMPÉTENCES AVEC LOGOS */
+    /* COMPÉTENCES */
     .skills-icon-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -483,8 +494,8 @@
     }
 
     .tech-logo {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
         object-fit: contain;
     }
 
@@ -494,7 +505,7 @@
         color: var(--text-main);
     }
 
-    /* QUADRILLAGE GÉOMÉTRIQUE POUR PROJETS & ENGAGEMENT */
+    /* PROJETS & ENGAGEMENTS */
     .projects-section {
         max-width: 1200px;
         background-image: 
@@ -510,7 +521,6 @@
         gap: 1.25rem;
     }
 
-    /* 4 ENGAGEMENTS -> STRICTEMENT 2 LIGNES DE 2 CASES */
     .engagements-quad-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -622,20 +632,61 @@
         padding: 0.1rem 0.35rem;
     }
 
-    .action-bracket {
-        font-family: monospace;
-        font-size: 0.78rem;
-        font-weight: 700;
-        color: var(--text-muted);
-        transition: color 0.2s ease, transform 0.2s ease;
+    /* GESTION DES LOGOS (SUPPORT BLANC ÉPURÉ POUR CONTRASTE EN MODE SOMBRE) */
+    .logo-box {
+        background: #ffffff;
+        border: 1.5px solid rgba(0, 0, 0, 0.08);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        flex-shrink: 0;
     }
 
-    .research-card:hover .action-bracket {
-        color: var(--accent);
-        transform: translateX(2px);
+    /* LOGOS ACADÉMIQUES À DROITE (PLUS GRANDS) */
+    .academic-main-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
     }
 
-    /* TIMELINE ACADÉMIQUE */
+    .academic-info {
+        flex: 1;
+    }
+
+    .institution-box {
+        width: 80px;
+        height: 52px;
+        padding: 4px 8px;
+    }
+
+    .academic-logo-right {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* LOGOS EXPÉRIENCES */
+    .title-with-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .company-box {
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+    }
+
+    .company-logo-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
     .timeline-academic {
         display: flex;
         flex-direction: column;
@@ -645,7 +696,7 @@
     .timeline-row {
         display: grid;
         grid-template-columns: 140px 1fr;
-        padding: 1.4rem 0;
+        padding: 1.5rem 0;
         border-bottom: 1px solid var(--border);
         gap: 1.5rem;
     }
@@ -655,10 +706,11 @@
         font-size: 0.85rem;
         color: var(--accent);
         font-weight: 700;
+        padding-top: 0.3rem;
     }
 
     .courses-accordion {
-        margin-top: 0.8rem;
+        margin-top: 0.9rem;
     }
 
     .courses-trigger {
@@ -759,8 +811,17 @@
     .card-header-flex {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 0.5rem;
+        align-items: center;
+        margin-bottom: 0.6rem;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .location-sub {
+        font-family: monospace;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: 0.2rem;
     }
 
     .period-mono {
@@ -773,16 +834,22 @@
         color: var(--accent);
     }
 
+    .exp-desc {
+        font-size: 0.88rem;
+        color: var(--text-main);
+        margin-bottom: 0.6rem;
+    }
+
     .exp-tasks-list {
         list-style: none;
         padding-left: 0;
-        margin-top: 0.5rem;
+        margin-top: 0.3rem;
         font-size: 0.88rem;
         color: var(--text-muted);
     }
 
     .exp-tasks-list li {
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.25rem;
     }
 
     .muted {
@@ -881,7 +948,6 @@
         line-height: 1.4;
     }
 
-    /* 2 ACTIVITÉS PARFAITEMENT CENTRÉES */
     .activities-centered-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(280px, 380px));
@@ -1006,6 +1072,11 @@
         .timeline-row {
             grid-template-columns: 1fr;
             gap: 0.4rem;
+        }
+        .academic-main-row {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 0.8rem;
         }
     }
 </style>
