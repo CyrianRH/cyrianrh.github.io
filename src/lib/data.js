@@ -47,7 +47,7 @@ export const content = {
                 title: "Classification d'images satellites",
                 desc: "Projet de deep learning pour la détection d'éoliennes.",
                 tags: ["Régression statistique", "Fine-tuning", "Keras", "TensorFlow"],
-                link: "https://github.com/ton-profil"
+                link: "https://github.com/CyrianRH/ProjetDeepLearning"
             },
             {
                 ref: "PRJ-02",
@@ -56,7 +56,7 @@ export const content = {
                 title: "Réduction de dimension en apprentissage non supervisé",
                 desc: "Rapport de groupe comparant 2 méthodes : l'ACP et l'autoencodeur.",
                 tags: ["R", "FactoMineR", "ACP"],
-                link: "https://github.com/ton-profil"
+                link: "/docs/rapport-acp.pdf"
             },
             {
                 ref: "PRJ-03",
@@ -65,7 +65,7 @@ export const content = {
                 title: "Mini-mémoire Théorie des graphes :",
                 desc: "Présentation de quelques applications en théorie des graphes",
                 tags: ["LaTeX"],
-                link: "https://github.com/ton-profil"
+                link: "/docs/theorie-des-graphes.pdf
             },
             {
                 ref: "PRJ-04",
@@ -74,7 +74,7 @@ export const content = {
                 title: "Analyse de recettes de cuisine",
                 desc: "Travail d'analyse de données récupérées sur le site de recettes Marmiton.",
                 tags: ["Scrapping web", "Nettoyage de données", "Python", "SQL", "Pandas", "BeautifulSoup"],
-                link: "https://github.com/ton-profil"
+                link: "https://github.com/CyrianRH/ProjetData-Recettes-de-cuisine"
             }
         ],
 
@@ -298,7 +298,7 @@ export const content = {
                 title: "Satellite Imagery Classification",
                 desc: "Deep learning project for wind turbine detection.",
                 tags: ["Statistical Regression", "Fine-tuning", "Keras", "TensorFlow"],
-                link: "https://github.com/ton-profil"
+                link: "https://github.com/CyrianRH/ProjetDeepLearning"
             },
             {
                 ref: "PRJ-02",
@@ -307,7 +307,7 @@ export const content = {
                 title: "Dimensionality Reduction in Unsupervised Learning",
                 desc: "Group report comparing two methods: PCA and autoencoders.",
                 tags: ["R", "FactoMineR", "PCA"],
-                link: "https://github.com/ton-profil"
+                link: "/docs/rapport-acp.pdf"
             },
             {
                 ref: "PRJ-03",
@@ -316,7 +316,7 @@ export const content = {
                 title: "Graph Theory Mini-Dissertation :",
                 desc: "Presentation of several applications in graph theory",
                 tags: ["LaTeX"],
-                link: "https://github.com/ton-profil"
+                link: "/docs/theorie-des-graphes.pdf"
             },
             {
                 ref: "PRJ-04",
@@ -325,7 +325,7 @@ export const content = {
                 title: "Recipe Data Analysis",
                 desc: "Data analysis project based on recipes collected from Marmiton.",
                 tags: ["Web Scraping", "Data Cleaning", "Python", "SQL", "Pandas", "BeautifulSoup"],
-                link: "https://github.com/ton-profil"
+                link: "https://github.com/CyrianRH/ProjetData-Recettes-de-cuisine"
             }
         ],
 
@@ -505,8 +505,8 @@ export const technicalData = {
     avatar: "/images/avatar.webp",
     cvFr: "/docs/cv-cyrian-revel-hidalgo-fr.pdf",
     cvEn: "/docs/cv-cyrian-revel-hidalgo-en.pdf",
-    githubUrl: "https://github.com/ton-profil",
-    linkedinUrl: "https://linkedin.com/in/ton-profil",
+    githubUrl: "https://github.com/CyrianRH",
+    linkedinUrl: "https://www.linkedin.com/in/cyrianrh",
 
     skillsList: [
         { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
