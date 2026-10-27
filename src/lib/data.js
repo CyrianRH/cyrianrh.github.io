@@ -65,7 +65,7 @@ export const content = {
                 title: "Mini-mémoire Théorie des graphes :",
                 desc: "Présentation de quelques applications en théorie des graphes",
                 tags: ["LaTeX"],
-                link: "/docs/theorie-des-graphes.pdf
+                link: "/docs/theorie-des-graphes.pdf"
             },
             {
                 ref: "PRJ-04",
@@ -78,7 +78,6 @@ export const content = {
             }
         ],
 
-        // PARCOURS AVEC LES 4 LOGOS
         academic: [
             {
                 year: "2026 - ...",
