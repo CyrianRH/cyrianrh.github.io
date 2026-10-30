@@ -169,10 +169,26 @@ export const content = {
             }
         ],
 
+        // RÔLES-MODÈLES
         roleModels: [
-            { name: "N1", role: "Inspiration professionnelle", image: "/images/role-models/model-1.webp" },
-            { name: "N2", role: "Inspiration professionnelle", image: "/images/role-models/model-2.webp" },
-            { name: "N3", role: "Inspiration professionnelle", image: "/images/role-models/model-3.webp" }
+            {
+                name: "Pedro Rohde",
+                role: "AI Engineer chez GoPro — Spécialisé en Computer Vision",
+                details: "Diplômé de l'ENSEEIHT et du Master MVA (ENS Paris-Saclay). Parcours de Data Scientist au Brésil et en France.",
+                image: "/images/role-models/pedro-rohde.webp"
+            },
+            {
+                name: "Gabriel Hurtado",
+                role: "AI Researcher & Co-fondateur Startup — Ex-Sony, ex-Huawei",
+                details: "Formation d'ingénieur à l'UTC, échange à Polytechnique Montréal et double diplôme à Georgia Tech.",
+                image: "/images/role-models/gabriel-hurtado.webp"
+            },
+            {
+                name: "Jean Mélou",
+                role: "Chercheur R&D en Computer Vision & Reconstruction 3D",
+                details: "Ingénieur ENSEEIHT, Master Visual Information Processing à l'Imperial College London et Doctorat à l'IRIT.",
+                image: "/images/role-models/jean-melou.webp"
+            }
         ],
 
         mobilityLangs: [
@@ -181,24 +197,25 @@ export const content = {
             { name: "Español", level: "B1" }
         ],
 
+        // MOBILITÉ EN PARALLÈLE AVEC LES RÔLES-MODÈLES
         destinations: [
             {
                 name: "Montréal :",
                 country: "Canada",
                 image: "/images/mobility/montreal.webp",
-                desc: "Projet de double diplôme avec l'école Polytechnique Montréal. J'envisage un master de recherche puis un doctorat au MILA, un institut de recherche en intelligence artificielle dont certains projets d'utilisation de l'IA pour réduire les inégalités me séduisent particulièrement."
+                desc: "Projet de double diplôme avec Polytechnique Montréal, dans la lignée du parcours académique de Gabriel Hurtado. Au-delà de mon souhait de découvrir le Canada dont la réputation de l'enseignement et de l'écosystème professionnel m'attire particulièrement, ce projet est motivé par la proximité avec le Mila (Institut québécois d'intelligence artificielle). Je suis très sensible à leurs recherches orientées vers un développement éthique de l'IA et l'usage des algorithmes pour la réduction des inégalités."
             },
             {
                 name: "Atlanta :",
                 country: "États-Unis",
                 image: "/images/mobility/atlanta.webp",
-                desc: "Projet de double diplôme avec Georgia Tech. L'idée est d'ouvrir mon profil à l'international. Projets axés sur le calcul scientifique haute performance, l'optimisation combinatoire et la recherche en modélisation mathématique."
+                desc: "Projet de double diplôme avec Georgia Tech, à l'image de la trajectoire internationale de Gabriel Hurtado. Cette opportunité constitue une passerelle stratégique vers les grands groupes de la tech mondiale. Le cursus est ciblé sur le calcul scientifique haute performance, l'optimisation combinatoire et le déploiement de modèles de machine learning à grande échelle."
             },
             {
-                name: "Suède :",
-                country: "Stockholm",
-                image: "/images/mobility/suede.webp",
-                desc: "Échange Erasmus au sein du KTH Royal Institute of Technology à Stockholm."
+                name: "Londres :",
+                country: "Imperial College London",
+                image: "/images/mobility/imperial.webp",
+                desc: "Projet de mobilité académique à l'Imperial College de Londres, inspiré directement par le parcours de Jean Mélou (diplômé ENSEEIHT). Je cible en particulier les spécialisations d'excellence comme le MSc Computing (Visual Information Processing) ou le MSc in Artificial Intelligence. C'est un environnement d'exception pour approfondir la vision par ordinateur, la modélisation 3D et ouvrir les portes des centres de R&D de premier plan."
             }
         ],
 
@@ -420,9 +437,24 @@ export const content = {
         ],
 
         roleModels: [
-            { name: "N1", role: "Professional inspiration", image: "/images/role-models/model-1.webp" },
-            { name: "N2", role: "Professional inspiration", image: "/images/role-models/model-2.webp" },
-            { name: "N3", role: "Professional inspiration", image: "/images/role-models/model-3.webp" }
+            {
+                name: "Pedro Rohde",
+                role: "AI Engineer at GoPro — Computer Vision Specialist",
+                details: "ENSEEIHT graduate and Master MVA (ENS Paris-Saclay). Data Scientist background in Brazil and France.",
+                image: "/images/role-models/pedro-rohde.webp"
+            },
+            {
+                name: "Gabriel Hurtado",
+                role: "AI Researcher & Startup Co-Founder — Ex-Sony, ex-Huawei",
+                details: "Engineering degree from UTC, exchange at Polytechnique Montréal, and dual degree with Georgia Tech.",
+                image: "/images/role-models/gabriel-hurtado.webp"
+            },
+            {
+                name: "Jean Mélou",
+                role: "R&D Researcher in Computer Vision & 3D Reconstruction",
+                details: "ENSEEIHT Engineer, Master in Visual Information Processing from Imperial College London, and PhD from IRIT.",
+                image: "/images/role-models/jean-melou.webp"
+            }
         ],
 
         mobilityLangs: [
@@ -436,19 +468,19 @@ export const content = {
                 name: "Montreal :",
                 country: "Canada",
                 image: "/images/mobility/montreal.webp",
-                desc: "Dual-degree program with Polytechnique Montréal. Planning a research master's followed by a PhD at MILA, an AI research institute whose projects using AI to reduce inequalities particularly appeal to me."
+                desc: "Dual-degree project with Polytechnique Montréal, echoing Gabriel Hurtado's academic journey. Driven by my desire to discover Canada's highly reputed teaching and professional environment, this plan is strongly tied to the proximity of Mila (Quebec AI Institute). I am particularly keen on their research into ethical AI and algorithmic approaches to reducing social inequalities."
             },
             {
                 name: "Atlanta :",
                 country: "United States",
                 image: "/images/mobility/atlanta.webp",
-                desc: "Dual-degree program with Georgia Tech to expand my international profile. Projects focused on high-performance scientific computing, combinatorial optimization, and mathematical modeling research."
+                desc: "Dual-degree program with Georgia Tech, mirroring Gabriel Hurtado's international trajectory. This path acts as a direct bridge to leading global tech corporations. The coursework focuses on high-performance scientific computing, combinatorial optimization, and large-scale deep learning deployment."
             },
             {
-                name: "Sweden :",
-                country: "Stockholm",
-                image: "/images/mobility/suede.webp",
-                desc: "Erasmus exchange at KTH Royal Institute of Technology in Stockholm."
+                name: "London :",
+                country: "Imperial College London",
+                image: "/images/mobility/imperial.webp",
+                desc: "Academic mobility project at Imperial College London, directly inspired by Jean Mélou's background (ENSEEIHT alumnus). I am particularly targeting advanced specializations such as the MSc Computing (Visual Information Processing) or the MSc in Artificial Intelligence—a world-class environment to advance my skills in computer vision and 3D modeling."
             }
         ],
 

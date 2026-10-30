@@ -19,7 +19,7 @@
     }
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} />
 
 <!-- HERO ASYMÉTRIQUE -->
 <section id="home" class="hero-asym">
@@ -42,7 +42,7 @@
                 src={technicalData.avatar} 
                 alt="Cyrian Revel--Hidalgo" 
                 class="photo-translucent"
-                on:error={(e) => e.currentTarget.style.display = 'none'} 
+                onerror={(e) => e.currentTarget.style.display = 'none'} 
             />
         </div>
     </div>
@@ -62,7 +62,7 @@
                     alt={item.name} 
                     class="tech-logo" 
                     loading="lazy"
-                    on:error={(e) => e.currentTarget.style.display = 'none'}
+                    onerror={(e) => e.currentTarget.style.display = 'none'}
                 />
                 <span class="tech-name">{item.name}</span>
             </div>
@@ -132,7 +132,10 @@
                                     src={stage.logo} 
                                     alt="" 
                                     class="academic-logo-right" 
-                                    on:error={(e) => e.currentTarget.parentElement.style.display = 'none'} 
+                                    onerror={(e) => {
+                                        const box = e.currentTarget.closest('.institution-box');
+                                        if (box) box.style.display = 'none';
+                                    }} 
                                 />
                             </div>
                         {/if}
@@ -169,7 +172,10 @@
                                 src={exp.logo} 
                                 alt="" 
                                 class="company-logo-img" 
-                                on:error={(e) => e.currentTarget.parentElement.style.display = 'none'} 
+                                onerror={(e) => {
+                                    const box = e.currentTarget.closest('.company-box');
+                                    if (box) box.style.display = 'none';
+                                }} 
                             />
                         </div>
                     {/if}
@@ -191,7 +197,7 @@
         </div>
     {/each}
 
-    <!-- Inspirations professionnelles -->
+    <!-- Rôles-modèles avec photo, rôle et détails de formation -->
     <h3 class="subsection-title">{t.career?.roleModelsTitle}</h3>
     <div class="cards-grid">
         {#each (t.roleModels ?? []) as rm}
@@ -201,11 +207,14 @@
                     alt={rm.name} 
                     loading="lazy" 
                     class="card-img" 
-                    on:error={(e) => e.currentTarget.style.display = 'none'} 
+                    onerror={(e) => e.currentTarget.style.display = 'none'} 
                 />
                 <div class="card-pad">
                     <h4>{rm.name}</h4>
-                    <p class="sub-detail">{rm.role}</p>
+                    <p class="role-spec">{rm.role}</p>
+                    {#if rm.details}
+                        <p class="sub-detail">{rm.details}</p>
+                    {/if}
                 </div>
             </div>
         {/each}
@@ -233,7 +242,7 @@
             <button 
                 type="button" 
                 class="destination-card" 
-                on:click={() => openModal(d)}
+                onclick={() => openModal(d)}
                 aria-label="Voir les détails pour {d.name}"
             >
                 <div class="img-wrapper">
@@ -242,7 +251,7 @@
                         alt={d.name} 
                         loading="lazy" 
                         class="card-img" 
-                        on:error={(e) => e.currentTarget.style.display = 'none'} 
+                        onerror={(e) => e.currentTarget.style.display = 'none'} 
                     />
                     <span class="click-badge">Détails ↗</span>
                 </div>
@@ -297,7 +306,7 @@
             <button 
                 type="button" 
                 class="destination-card" 
-                on:click={() => openModal(act)}
+                onclick={() => openModal(act)}
                 aria-label="Voir les détails pour {act.name}"
             >
                 <div class="img-wrapper">
@@ -306,7 +315,7 @@
                         alt={act.name} 
                         loading="lazy" 
                         class="card-img" 
-                        on:error={(e) => e.currentTarget.style.display = 'none'} 
+                        onerror={(e) => e.currentTarget.style.display = 'none'} 
                     />
                     <span class="click-badge">Détails ↗</span>
                 </div>
@@ -328,11 +337,11 @@
 {#if selectedItem}
     <div 
         class="modal-backdrop" 
-        on:click={(e) => { if (e.target === e.currentTarget) closeModal(); }}
+        onclick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         role="presentation"
     >
         <div class="modal-dialog" role="dialog" aria-modal="true">
-            <button class="modal-close" on:click={closeModal} aria-label="Fermer la fenêtre">✕</button>
+            <button class="modal-close" onclick={closeModal} aria-label="Fermer la fenêtre">✕</button>
             {#if selectedItem.image}
                 <img src={selectedItem.image} alt={selectedItem.name} class="modal-cover" />
             {/if}
@@ -632,7 +641,7 @@
         padding: 0.1rem 0.35rem;
     }
 
-    /* GESTION DES LOGOS (SUPPORT BLANC ÉPURÉ POUR CONTRASTE EN MODE SOMBRE) */
+    /* LOGOS AVEC SUPPORT DE CONTRASTE */
     .logo-box {
         background: #ffffff;
         border: 1.5px solid rgba(0, 0, 0, 0.08);
@@ -644,7 +653,6 @@
         flex-shrink: 0;
     }
 
-    /* LOGOS ACADÉMIQUES À DROITE (PLUS GRANDS) */
     .academic-main-row {
         display: flex;
         justify-content: space-between;
@@ -668,7 +676,6 @@
         object-fit: contain;
     }
 
-    /* LOGOS EXPÉRIENCES */
     .title-with-logo {
         display: flex;
         align-items: center;
@@ -880,8 +887,16 @@
         padding: 1.2rem;
     }
 
+    .role-spec {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--accent);
+        margin: 0.3rem 0;
+    }
+
     .sub-detail {
         font-size: 0.8rem;
+        line-height: 1.45;
         color: var(--text-muted);
     }
 
