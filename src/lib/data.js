@@ -261,7 +261,7 @@ export const content = {
                 name: "Roller artistique :",
                 category: "Sport",
                 image: "/images/activities/roller.webp",
-                desc: "Ancien sportif de bon niveau en roller artistique, j'ai pu expérimenter la compétition avec plusieurs titres de vice-champion de France en solo et en couple ainsi qu'une qualification à la coupe d'Europe. J'ai également fait partie de différents groupes, de 4 à 9 patineurs. Je suis maintenant passé de l'autre côté avec l'obtient de mon diplôme de juge régionnal, et compte bien me former à un niveau national dans les années à venir."
+                desc: "Ancien sportif de bon niveau en roller artistique, j'ai pu expérimenter la compétition avec plusieurs titres de vice-champion de France en solo et en couple ainsi qu'une qualification à la coupe d'Europe. J'ai également fait partie de différents groupes, de 4 à 9 patineurs. Je suis maintenant passé de l'autre côté de la piste avec l'obtention de mon diplôme de juge régionnal, et compte bien me former à un niveau national dans les années à venir."
             }
         ]
     },
