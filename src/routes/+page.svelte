@@ -106,12 +106,28 @@
     </div>
 
     <div class="math-card banner-docs">
-        <div>
-            <h4>{t.career?.pitch}</h4>
-        </div>
-        <div class="cv-actions">
-            <a href={technicalData.cvFr} target="_blank" rel="noopener noreferrer" class="btn-primary">{t.career?.cvFr}</a>
-            <a href={technicalData.cvEn} target="_blank" rel="noopener noreferrer" class="btn-primary">{t.career?.cvEn}</a>
+        <div class="pitch-container">
+            <div class="pitch-header">
+                <h4>{t.career?.pitch}</h4>
+                <div class="cv-actions">
+                    <a href={technicalData.cvFr} target="_blank" rel="noopener noreferrer" class="btn-primary">{t.career?.cvFr}</a>
+                    <a href={technicalData.cvEn} target="_blank" rel="noopener noreferrer" class="btn-primary">{t.career?.cvEn}</a>
+                </div>
+            </div>
+
+            {#if technicalData.pitchVideo}
+                <div class="video-wrapper">
+                    <video 
+                        controls 
+                        preload="metadata"
+                        class="pitch-video-player"
+                    >
+                        <source src={technicalData.pitchVideo} type="video/mp4" />
+                        <track kind="captions" />
+                        Votre navigateur ne prend pas en charge la lecture de vidéos.
+                    </video>
+                </div>
+            {/if}
         </div>
     </div>
 
@@ -789,10 +805,40 @@
 
     .banner-docs {
         display: flex;
+        flex-direction: column;
+    }
+
+    .pitch-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .pitch-header {
+        display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
         gap: 1rem;
+    }
+
+    .video-wrapper {
+        width: 100%;
+        max-width: 680px;
+        margin: 0.5rem auto 0 auto;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        overflow: hidden;
+        background: #000000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .pitch-video-player {
+        width: 100%;
+        max-height: 420px;
+        display: block;
+        outline: none;
     }
 
     .btn-primary {

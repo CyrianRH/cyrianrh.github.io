@@ -536,6 +536,7 @@ export const technicalData = {
     avatar: "/images/avatar.webp",
     cvFr: "/docs/cv-cyrian-revel-hidalgo-fr.pdf",
     cvEn: "/docs/cv-cyrian-revel-hidalgo-en.pdf",
+    pitchVideo: "/videos/elevator-pitch.mp4",
     githubUrl: "https://github.com/CyrianRH",
     linkedinUrl: "https://www.linkedin.com/in/cyrianrh",
 
